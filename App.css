@@ -47,7 +47,9 @@
   align-content: stretch;
   justify-content: space-evenly;
   background-color:blue;
-  height: 10vh;
+  min-height: 10vh;
+  height: auto;
+  width: 80vw;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
@@ -55,17 +57,47 @@
 
 .task-active {
   background-color:  #61dafb !important;
+  transition: background-color 500ms;
 }
 
 .task-inactive {
   background-color: lightgray;
+  transition: background-color 500ms;
 }
 
 .task-name {
   flex-grow: 2;
+  width: 70vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  max-height: 100vh;
 }
 
 .options {
   display: flex;
   flex-direction: column;
+}
+
+.taskAdder{
+  
+
+}
+
+.taskInput{
+  flex-grow: 9;
+  opacity: 10%;
+  transition: opacity 500ms;
+}
+
+.taskInput:focus{
+  opacity: 100%;
+  transition: opacity 500ms;
+}
+
+#plus{
+  padding: 10px;
+  align-self: center;
+  height: 8vh;
+  opacity: 70%;
 }
