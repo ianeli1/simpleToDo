@@ -46,14 +46,39 @@
   display: flex;
   align-content: stretch;
   justify-content: space-evenly;
-  background-color:blue;
+  background-color:greenyellow;
   min-height: 10vh;
   height: auto;
   width: 80vw;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
+  transition: top 1s;
+  animation-name: fadeIn;
+  animation-duration: 500ms;
 }
+
+.taskDeleted{
+  display: flex;
+  align-content: stretch;
+  justify-content: space-evenly;
+  background-color:greenyellow;
+  min-height: 10vh;
+  height: auto;
+  width: 80vw;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: top 1s;
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-direction: reverse !important;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+} 
 
 .task-active {
   background-color:  #61dafb !important;
@@ -86,13 +111,13 @@
 
 .taskInput{
   flex-grow: 9;
-  opacity: 10%;
+  opacity: 20%;
   transition: opacity 500ms;
 }
 
 .taskInput:focus{
   opacity: 100%;
-  transition: opacity 500ms;
+  transition: opacity 300ms;
 }
 
 #plus{

@@ -29,7 +29,7 @@ class App extends React.Component {
     return (e) => {
       e.preventDefault()
       const newArr = [...this.state.tasks]
-      newArr.splice(id, 1)
+      newArr.splice(id, 1)  
       this.setState({
         tasks: newArr
       })
@@ -68,12 +68,17 @@ class App extends React.Component {
 
 
 function Task(props){
-  return <div className={`task ${props.a.active ? 'task-active' : 'task-inactive'}`}>
+  let deleted = false;
+  return <div className={`task ${props.a.active ? 'task-active' : 'task-inactive'} ${deleted ? "taskDeleted" : "task"}`}>
     <h3 className="task-name">{
       props.a.active ? props.a.name : <strike>{props.a.name}</strike>
       }</h3>
     <div className="options">
-      <button onClick={props.del(props.id)}>D</button>
+      <button onClick={(e) => {
+        deleted = true;
+        setTimeout(props.del(props.id)(e), 500);
+      }
+      }>D</button>
       <button onClick={props.deac(props.id)}>{props.a.active ? "A" : "NA"}</button>
       {props.a.date}
     </div>
